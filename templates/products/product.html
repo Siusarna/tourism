@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+  <div class='back_in_home'>
+    <a href="{% url 'home' %}">
+      <img height="50px;" src='/static/img/Ic.png'>
+    </a>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                {% for image_item in product.productimage_set.all %}
+                    <div class="product-image-item">
+                        <img src="{{ image_item.image.url }}" class="img-responsive">
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="col-lg-6">
+                <h1 class="text-center">
+                    {{ product.name }}
+                </h1>
+                <div class="">
+                    <p>
+                        Ціна: {{ product.price }}  $
+                    </p>
+                    <p>
+                      Зі знижкою: {{product.price_discount}} $
+                    </p>
+                </div>
+                <div>
+                      <!-- Nav tabs -->
+                      <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="active">
+                            <a href="#description" aria-controls="home" role="tab" data-toggle="tab">
+                                Опис
+                            </a>
+                        </li>
+                        <li role="presentation">
+                            <a href="#delivery" aria-controls="profile" role="tab" data-toggle="tab">
+                                Доставка
+                            </a>
+                        </li>
+                      </ul>
+
+                      <!-- Tab panes -->
+                      <div class="tab-content product-description-tabs">
+                        <!-- <div class="product-description-tabs"></div> -->
+                        <div role="tabpanel" class="tab-pane active" id="description">
+                            {{ product.description }}
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="delivery">
+                            Доставка всіх білетів та документів здійснюється електронно. Після оформлення замовлення наш
+                            оператор звяжеться з вами для уточнення інформації.Він відправить вам рахунок для оплати поїздки.
+                            Відправка документів та білетів здійснюється тільки після повної оплати туру
+                        </div>
+                      </div>
+                      <div>
+                                      <div >
+                                          <button type="submit" id="submit_btn" class="btnn btn-success btn-buy"
+                                            data-product_id = "{{product.id}}"
+                                            data-name = "{{product.name}}"
+                                            data-price = '{{product.price}}'
+                                          >
+                                            <a class="text" href="{%url 'feedback' %}">Замовити тур</a>
+                                          </button>
+                                      </div>
+                          </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <DIV ID = "toTop" > ^ Вверх </ DIV >
+{% endblock %}

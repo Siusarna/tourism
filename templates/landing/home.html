@@ -1,0 +1,122 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{%block content%}
+
+  <div class="section-top" >
+    <div class="link-block">
+      <a class="navbar-brand link-block"  href="https://www.instagram.com/oliaviflinzider/" target="_blank">
+        <img src="https://img.icons8.com/color/1600/instagram-new.png" width="30" height="30" class="d-inline-block align-top" alt="">
+      </a>
+    </div>
+    <div class="link-block-face">
+      <a class="navbar-brand" href="https://www.facebook.com/profile.php?id=100008865370826" target="_blank">
+        <img src="http://s1.iconbird.com/ico/2013/1/570/w64h641389815225Facebook.png" width="30" height="30" class="d-inline-block align-top" alt="">
+      </a>
+    </div>
+    <div class="link-block-telegram">
+      <a class="navbar-brand" href="https://t.me/Oliaviflinzider" target="_blank">
+        <img src="https://img.icons8.com/color/2x/telegram-app.png" width="30" height="30" class="d-inline-block align-top" alt="">
+      </a>
+    </div>
+    <div class="number">
+      <a id="Top"><I class="class_p">+38(099)38-43-986 (Київ)</I></a>
+    </div>
+    <div class="email">
+      <I class="class_p">oliaviflinzider@ukr.net</I>
+    </div>
+    <div class="navbar-section-down">
+      <table>
+        <tr>
+          <td width=268px><a href="#Top"><img height=100px src='static/img/Ic.png'></a></td>
+          <td width=200px><b><a class="text" href="#Hot" class="text"><span class="link-on-top">ГАРЯЧІ ТУРИ</span></a></b></td>
+          <td width=250px><b><a class="text" href="#Sighteening" class="text"><span class="link-on-top">ЕКСКУРСІЙНІ ТУРИ</span></a></b></td>
+          <td width=250px><b><a class="text" href="#Popular" class="text"><span class="link-on-top">ПОПУЛЯРНІ ТУРИ</span></a></b></td>
+          <td width=150px class="basket-container">
+              <a class="text" href=""><span class="link-on-top"><b>КРАЇНИ</b></span></a>
+             <div class="basket-items hidden">
+               {%for product_image in products_images_all%}
+                <a href="{% url 'product' product_image.product.id %}">
+                  <h4 style="color:#23dce5">{{product_image.product.name}}</h4></a>
+               {%endfor%}
+              </div>
+          </td>
+          <td width=100px><b><a class="text" href="#Footer" class="text"><span class="link-on-top">КОНТАКТИ</span></a></b></td>
+        </tr>
+      </table>
+    </div>
+  <div class="text-in-head">
+    <h3  class="content-in-head">
+      <span class="content-in-head-span">Хочете провести незабутньо свою відпустку?</span>
+      <br>Виберіть свою подорож прямо зараз!
+    </h3>
+  </div>
+  <div class="help">
+    <h4 class="help-text">
+      <span class="help-text-span">Допомогти в підборі туру?</span>
+      </h4>
+    <a href="https://goo.gl/forms/4juDANNEVpdgD3Mm1" target="_blank">
+      <button class="btn-Help">Відправити запит</button>
+    </a>
+  </div>
+  </div>
+   <div class="section section1">
+     <div class="container">
+       <div class="row">
+         <div class="col-lg-12">
+           <h1 class="text-center">
+             <a id="New">Нові тури</a>
+           </h1>
+        </div>
+         {%for product_image in products_images_new%}
+            {%include 'landing/product_item.html'%}
+         {%endfor%}
+         <div class="space">
+         </div>
+       </div>
+     </div>
+   </div>
+   <div class="section section2 phones-container">
+     <div class="container">
+       <div class="row">
+         <div class="col-lg-12">
+           <h1 class="text-center">
+             <a id="Hot">Гарячі тури</a>
+           </h1>
+        </div>
+         {%for product_image in products_images_hot%}
+          {%include 'landing/product_item.html'%}
+         {%endfor%}
+       </div>
+     </div>
+   </div>
+   <div class="section section3 leptops-container">
+     <div class="container">
+       <div class="row">
+         <div class="col-lg-12">
+           <h1 class="text-center">
+             <a id="Sighteening">Екскурсійні тури</a>
+           </h1>
+         </div>
+         {%for product_image in products_images_sightseening%}
+          {%include 'landing/product_item.html'%}
+         {%endfor%}
+       </div>
+     </div>
+    <div class="section section2 phones-container">
+       <div class="container">
+         <div class="row">
+           <div class="col-lg-12">
+             <h1 class="text-center">
+              <a id="Popular">Популярні тури</a>
+             </h1>
+          </div>
+           {%for product_image in products_images_popular%}
+            {%include 'landing/product_item.html'%}
+           {%endfor%}
+         </div>
+       </div>
+     </div>
+   </div>
+     <DIV ID = "toTop" > ^ Вверх </ DIV >
+{% endblock %}

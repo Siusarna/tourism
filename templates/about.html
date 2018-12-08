@@ -1,0 +1,100 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset="utf-8">
+    <title>Туристичне агенство</title>
+    <link rel="shortcut icon" href="static/img/Icon.png" type="image/png">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css">
+      <!-- Custom styles -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,400" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+<div class="boddy">
+<div class="section-top" >
+  <div class="link-block">
+    <a class="navbar-brand link-block"  href="https://www.instagram.com/oliaviflinzider/" target="_blank">
+      <img src="https://img.icons8.com/color/1600/instagram-new.png" width="30" height="30" class="d-inline-block align-top" alt="">
+    </a>
+  </div>
+  <div class="link-block-face">
+    <a class="navbar-brand" href="https://www.facebook.com/profile.php?id=100008865370826" target="_blank">
+      <img src="http://s1.iconbird.com/ico/2013/1/570/w64h641389815225Facebook.png" width="30" height="30" class="d-inline-block align-top" alt="">
+    </a>
+  </div>
+  <div class="link-block-telegram">
+    <a class="navbar-brand" href="https://t.me/Oliaviflinzider" target="_blank">
+      <img src="https://img.icons8.com/color/2x/telegram-app.png" width="30" height="30" class="d-inline-block align-top" alt="">
+    </a>
+  </div>
+  <div class="number">
+    <a id="Top"><I class="class_p">+38(099)38-43-986 (Київ)</I></a>
+  </div>
+  <div class="email">
+    <I class="class_p">oliaviflinzider@ukr.net</I>
+  </div>
+  <div class="navbar-section-down">
+    <table>
+      <tr>
+        <td width=268px><a href="{% url 'home' %}">
+          <img height="100px;" src='/static/img/Ic.png'>
+        </a></td>
+        <td width=200px><b><a class="text" href="#Hot" class="text"><span class="link-on-top">ГАРЯЧІ ТУРИ</span></a></b></td>
+        <td width=250px><b><a class="text" href="#Sighteening" class="text"><span class="link-on-top">ЕКСКУРСІЙНІ ТУРИ</span></a></b></td>
+        <td width=250px><b><a class="text" href="#Popular" class="text"><span class="link-on-top">ПОПУЛЯРНІ ТУРИ</span></a></b></td>
+        <td width=150px class="basket-container">
+            <a class="text" href=""><span class="link-on-top"><b>КРАЇНИ</b></span></a>
+           <div class="basket-items hidden">
+             {%for product_image in products_images_all%}
+              <a href="{% url 'product' product_image.product.id %}">
+                <h4 style="color:#23dce5">{{product_image.product.name}}</h4></a>
+             {%endfor%}
+            </div>
+        </td>
+        <td width=100px><b><a class="text" href="#Footer" class="text"><span class="link-on-top">КОНТАКТИ</span></a></b></td>
+      </tr>
+    </table>
+  </div>
+<div class="text-in-head">
+  <h3  class="content-in-head">
+    <span class="content-in-head-span">Хочете провести незабутньо свою відпустку?</span>
+    <br>Виберіть свою подорож прямо зараз!
+  </h3>
+</div>
+<div class="help">
+  <h4 class="help-text">
+    <span class="help-text-span">Допомогти в підборі туру?</span>
+    </h4>
+  <a href="https://goo.gl/forms/4juDANNEVpdgD3Mm1" target="_blank">
+    <button class="btn-Help">Відправити запит</button>
+  </a>
+  <div class="info">
+  <img height="400px" src="/static/img/info.png">
+  </div>
+  <div class="licencia">
+    <h2 style='padding-left:74px'>Наша ліцензія</h2>
+    <img height="500px" src="/static/img/licencia.png">
+  </div>
+  <div class="partners">
+    <h2 style='padding-left:159px'>Наші партнери</h2>
+    <img height="500px" style="padding-right: 50px" src="/static/img/partners.jpg">
+  </div>
+  <div class="staxivka">
+    <h2 style='padding-left:159px'>Наше страхування</h2>
+    <h4 style="paddint-right: 300px">Партнерство з ERV
+      ERV пропонує туристичним компаніям довгострокове, надійне та
+      зручне партнерство по страхуванню туристів від усіляких ризиків під час їх подорожей за кордон або по Україні.ERV після підписання
+      Договору з компанією - партнером безкоштовно надає комплекс послуг з автоматизації процесу оформлення та обліку полісів страхування.
+    </h4>
+  </div>
+
+</div>
+</div>
+</div>
+</body>
+</html>
